@@ -12,8 +12,7 @@ class RecipePage extends StatelessWidget {
       appBar: _buildRecipeAppBar(), // _ -> private
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10), // 수평 여백
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽 정렬
+        child: ListView(
           children: [
             RecipeTitle(),
             RecipeMenu(),

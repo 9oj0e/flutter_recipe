@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class RecipeListItem extends StatelessWidget {
   final String imageName;
@@ -8,6 +10,32 @@ class RecipeListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AspectRatio(
+            aspectRatio: 2 / 1,
+            child: ClipRRect( // ClipRect 아님.
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset(
+                "assets/images/$imageName.jpeg",
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            title,
+            style: TextStyle(fontSize: 20),
+          ),
+          Text(
+            "Have you ever made your own $title? Once you've tried a homemade $title, you'll never go back.",
+            style: TextStyle(color: Colors.grey, fontSize: 12),
+          )
+        ],
+      ),
+    );
   }
 }
